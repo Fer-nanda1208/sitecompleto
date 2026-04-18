@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Panelas Antiaderente Cerâmico - Mimo Style</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styleindex.css') }}">
+</head>
+<body>
+
+  <div class="banner-promocional">
+    🎁 ESPECIAL DIA DAS MÃES — Ofertas por tempo LIMITADO!
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="header-logo">ma<span>ga</span>lu</a>
+      <div class="header-search">
+        <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
+        <button>🔍</button>
+      </div>
+      <div class="header-actions">
+        <a href="#">📍 Digite seu CEP</a>
+        <a href="#">🛒 Sacola</a>
+        <a href="#">👤 Entre ou Cadastre-se</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb">
+    <a href="#">Home</a>
+    <span>&gt;</span>
+    <a href="#">Utilidades Domésticas</a>
+    <span>&gt;</span>
+    <a href="#">Panelas</a>
+    <span>&gt;</span>
+    <a href="#">Jogo de Panelas</a>
+    <span>&gt;</span>
+    <span>Jogo de Panelas Antiaderente Cerâmico - Mimo Style</span>
+  </nav>
+
+  <!-- ===== PRODUCT PAGE ===== -->
+  <main class="product-page">
+
+    <!-- GALLERY SECTION -->
+    <div class="gallery-section card">
+      <div class="gallery-container">
+        <div class="thumbnails">
+          <button class="thumb-btn active" onclick="changeImage(0, this)">
+            <img src="https://a-static.mlcdn.com.br/420x420/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/abfea51a7041aaf997996521e2a1dd7c.jpeg" alt="Imagem 1">
+          </button>
+          <button class="thumb-btn" onclick="changeImage(1, this)">
+            <img src="https://a-static.mlcdn.com.br/420x420/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/313021f7492baafea5776811bfcd0e40.jpeg" alt="Imagem 2">
+          </button>
+          <button class="thumb-btn" onclick="changeImage(2, this)">
+            <img src="https://a-static.mlcdn.com.br/420x420/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/9d4da30f2d4e601fa29cb33bd729c1ff.jpeg" alt="Imagem 3">
+          </button>
+        </div>
+        <div class="main-image-wrap">
+          <img id="mainImage"
+            src="https://a-static.mlcdn.com.br/420x420/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/abfea51a7041aaf997996521e2a1dd7c.jpeg"
+            alt="Jogo de Panelas Antiaderente Cerâmico Fogão Indução Kit 10 Peças Pratic Cook Marmol">
+        </div>
+      </div>
+
+      <!-- Product info -->
+      <div class="product-info-section">
+        <div class="product-tags-row">
+          <span class="tag-full">⚡ Full</span>
+          <a class="rating-link" href="#">
+            <span class="stars">★</span>
+            <span>4.7 (474)</span>
+          </a>
+        </div>
+        <h1 class="product-title">
+          Jogo de Panelas Antiaderente Cerâmico Fogão Indução Kit 10 Peças Pratic Cook Marmol - Mimo Style
+        </h1>
+        <div class="seller-line">
+          Vendido por <a href="#">Magazine Gerais Comercio</a> e entregue por <strong>Magalu</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Price card -->
+      <div class="card price-card">
+        <div class="price-original">R$&nbsp;169,90</div>
+        <div class="discount-badge">15% OFF no PIX</div>
+        <div class="price-main">
+          <span class="price-currency">R$</span>
+          <span class="price-integer">89</span>
+          <span class="price-cents">,90</span>
+          <span class="price-method">no Pix</span>
+        </div>
+        <div class="price-installment">ou R$&nbsp;105,74 em <strong>8x de R$&nbsp;17,62</strong> sem juros</div>
+        <div class="payment-link" onclick="openModal('installmentsModal')">
+          Ver opções de pagamento <span>›</span>
+        </div>
+      </div>
+
+      <!-- Shipping card -->
+      <div class="card shipping-card">
+        <button class="shipping-btn" onclick="openModal('shippingModal')">
+          <span class="shipping-icon">📍</span>
+          <div class="shipping-text"><strong>Calcular frete e prazo</strong></div>
+          <span>›</span>
+        </button>
+      </div>
+
+      <!-- Buy buttons -->
+      <div class="card buy-card">
+        <button class="btn-add-cart" onclick="openModal('cartModal')">
+          🛒 Adicionar à sacola
+        </button>
+        <button class="btn-buy-now" onclick="buyNow()">
+          Comprar agora
+        </button>
+      </div>
+
+      <!-- Seller info card -->
+      <div class="card seller-card">
+        <h2>Informações da loja</h2>
+        <div class="seller-row">
+          <div class="seller-avatar">🏪</div>
+          <div>
+            <div class="seller-name">Magazine Gerais Comercio</div>
+            <div class="seller-since">Lojista Magalu desde 2021</div>
+          </div>
+        </div>
+        <div class="seller-score-bar">
+          <div class="seller-score-num">4.7</div>
+          <div class="seller-score-fill"></div>
+        </div>
+        <div class="seller-score-labels"><span>Ruim</span><span>Ótimo</span></div>
+        <div class="seller-stats">
+          <div class="stat-item">
+            <div class="stat-icon">🛍️</div>
+            <div class="stat-value">+20mil</div>
+            <div class="stat-label">Produtos vendidos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🚚</div>
+            <div class="stat-value">Entrega</div>
+            <div class="stat-label">No prazo</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">💬</div>
+            <div class="stat-value">Atendimento</div>
+            <div class="stat-label">Responde rápido</div>
+          </div>
+        </div>
+        <div class="seller-action-row">
+          <button class="btn-outline-sm">💬 Fale com lojista</button>
+          <button class="btn-outline-sm">+ Seguir</button>
+        </div>
+      </div>
+
+      <!-- Benefits card -->
+      <div class="card benefits-card">
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <div class="benefit-text"><strong>Entrega Full</strong> é entrega rápida, frete barato e mais segurança para você.</div>
+          <div class="benefit-arrow">›</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-text"><strong>Magalu garante</strong> a sua compra, do pedido à entrega.</div>
+          <div class="benefit-arrow">›</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔄</div>
+          <div class="benefit-text"><strong>Devolução Gratuita</strong> em até 7 dias depois de receber o produto.</div>
+          <div class="benefit-arrow">›</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- DETAILS SECTION -->
+    <div class="details-section card">
+      <div class="section-header">
+        <h2 class="section-title">Descrição e ficha técnica</h2>
+      </div>
+      <div class="section-content">
+        <div class="description-collapsed" id="descBlock">
+          <p style="margin-bottom:10px">A linha <strong>Cook</strong> da Mimo Style é a solução perfeita para preparar suas receitas favoritas com praticidade, funcionalidade e qualidade excepcionais. Composta por 10 peças, cada item possui uma base tripla em alto relevo com fundo de indução.</p>
+          <p style="margin-bottom:8px"><strong>Destaques do Produto:</strong></p>
+          <ul style="padding-left:16px;margin-bottom:10px">
+            <li style="margin-bottom:6px"><strong>Compatibilidade Universal:</strong> Adequadas para todos os tipos de fogões — elétricos, vitrocerâmicos, indução e a gás.</li>
+            <li style="margin-bottom:6px"><strong>Revestimento Cerâmico em 3 Camadas:</strong> 2 camadas de revestimento cerâmico + 1 camada resistente a alta temperatura.</li>
+            <li style="margin-bottom:6px"><strong>Distribuição Uniforme de Calor:</strong> Conduz o calor de forma uniforme, reduzindo o consumo de gás e energia.</li>
+            <li style="margin-bottom:6px"><strong>Alças Soft-Touch:</strong> Revestimento soft-touch oferece segurança e conforto, evitando queimaduras.</li>
+            <li style="margin-bottom:6px"><strong>Tampas de Vidro Temperado:</strong> Permitem acompanhar o cozimento sem abrir a tampa.</li>
+          </ul>
+          <p style="margin-bottom:8px"><strong>Composição do Conjunto (10 peças):</strong></p>
+          <ul style="padding-left:16px;margin-bottom:10px">
+            <li>01 Panela 16cm 1,5L | 01 Panela 18cm 2,0L | 01 Caçarola 20cm 2,8L</li>
+            <li>01 Caçarola 22cm 3,6L | 01 Fervedor 14cm 2,0L | 01 Frigideira 18cm</li>
+            <li>01 Frigideira 22cm | 01 Espátula Vazada | 01 Escumadeira | 01 Concha</li>
+          </ul>
+          <p style="color:#949ea2;font-size:12px">Código: hh5b5ja853</p>
+        </div>
+        <button class="btn-see-more" id="seeMoreBtn" onclick="toggleDesc()">Ver ficha técnica completa ↓</button>
+        <div id="factsheetBlock" style="display:none;margin-top:16px">
+          <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Ficha Técnica</h3>
+          <table class="factsheet">
+            <tr><td>Garantia</td><td>3 Meses</td></tr>
+            <tr><td>Marca</td><td><a href="#">Mimo Style</a></td></tr>
+            <tr><td>Quantidade de Peças</td><td>10 unidades</td></tr>
+            <tr><td>Material</td><td>Alumínio</td></tr>
+            <tr><td>Revestimento Interno</td><td>Antiaderente Cerâmico em 3 Camadas</td></tr>
+            <tr><td>Fogões Compatíveis</td><td>Gás, elétrico, vitrocerâmico e indução</td></tr>
+            <tr><td>Espessura</td><td>Corpo 2,3 mm / Fundo 2,7 mm</td></tr>
+            <tr><td>Tipo de Fundo</td><td>Triplo Indução</td></tr>
+            <tr><td>Material do Cabo</td><td>Baquelite com revestimento Soft-Touch</td></tr>
+            <tr><td>Tampa</td><td>Vidro Temperado</td></tr>
+            <tr><td>Cor</td><td>Creme</td></tr>
+            <tr><td>Modelo</td><td>Pratic</td></tr>
+            <tr><td>Linha</td><td>Cook</td></tr>
+          </table>
+          <button class="btn-see-more" onclick="toggleDesc()">Ver menos ↑</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVIEWS SECTION -->
+    <div class="reviews-section card">
+      <h2 class="section-title">Avaliações dos clientes</h2>
+      <div class="reviews-grid">
+        <div class="rating-summary">
+          <div class="rating-big">
+            <span class="score">4.7</span>
+            <span class="star-big">★</span>
+          </div>
+          <div class="review-count"><strong>474</strong> avaliações</div>
+          <div class="review-count"><strong>228</strong> comentários</div>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px">
+            <div class="rating-bar-row"><span class="num">5</span><span class="star-sm">★</span><div class="bar-track"><div class="bar-fill" style="width:83%"></div></div><span class="count">392</span></div>
+            <div class="rating-bar-row"><span class="num">4</span><span class="star-sm">★</span><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><span class="count">55</span></div>
+            <div class="rating-bar-row"><span class="num">3</span><span class="star-sm">★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="count">8</span></div>
+            <div class="rating-bar-row"><span class="num">2</span><span class="star-sm">★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="count">8</span></div>
+            <div class="rating-bar-row"><span class="num">1</span><span class="star-sm">★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="count">11</span></div>
+          </div>
+        </div>
+        <div class="review-list">
+          <div class="review-item">
+            <div class="reviewer-row">
+              <span class="reviewer-avatar">👤</span>
+              <span class="reviewer-name">Sabrina</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <div class="review-text">Veio com amasado no frigideira mas o pronto e muito bom e muito bonito</div>
+            <div class="review-date">há 5 meses</div>
+          </div>
+          <div class="review-item">
+            <div class="reviewer-row">
+              <span class="reviewer-avatar">👤</span>
+              <span class="reviewer-name">NATAN</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <div class="review-text">Gostei bastante das panelas. São lindas e parecem ser boas. MAS, a maior panela é muito pequena... As colheres que vem junto são bem fracas.</div>
+            <div class="review-date">há 10 meses</div>
+          </div>
+          <div class="review-item">
+            <div class="reviewer-row">
+              <span class="reviewer-avatar">👤</span>
+              <span class="reviewer-name">Luzia</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <div class="review-text">Gente! O produto é maravilhoso, já vem com alças colocada e é super forte e boa a pegada, super recomendo!</div>
+            <div class="review-date">há mais de 1 ano</div>
+          </div>
+          <div class="review-item">
+            <div class="reviewer-row">
+              <span class="reviewer-avatar">👤</span>
+              <span class="reviewer-name">Everson</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <div class="review-text">Muito boas pode comprar de medo eu amei....</div>
+            <div class="review-date">há cerca de 2 meses</div>
+          </div>
+        </div>
+      </div>
+      <a class="btn-all-reviews" href="#">Ver todas as avaliações →</a>
+    </div>
+
+    <!-- Q&A SECTION -->
+    <div class="qna-section card">
+      <h2 class="section-title">Perguntas e Respostas</h2>
+      <p style="font-size:13px;color:var(--grey-text);margin-top:4px">16 perguntas respondidas</p>
+      <div class="qna-list">
+        <div class="qna-item">
+          <div class="question">O cabo queima a mão?</div>
+          <div class="answer"><span class="answer-arrow">↳</span><span class="answer-text">Não, ele é de baquelite com revestimento soft touch</span></div>
+          <div class="answer-date">9 meses</div>
+        </div>
+        <div class="qna-item">
+          <div class="question">Como fazer a cura antes do uso?</div>
+          <div class="answer"><span class="answer-arrow">↳</span><span class="answer-text">Lave com esponja macia e detergente, seque bem e unte a parte interna com óleo de cozinha. Leve a fogo baixo por dois minutos. Deixe esfriar e lave mais uma vez.</span></div>
+          <div class="answer-date">10 meses</div>
+        </div>
+        <div class="qna-item">
+          <div class="question">Pode usar no fogão a gás?</div>
+          <div class="answer"><span class="answer-arrow">↳</span><span class="answer-text">Bom dia!! Pode sim</span></div>
+          <div class="answer-date">11 meses</div>
+        </div>
+        <div class="qna-item">
+          <div class="question">As panelas são livres de PFOA e PTFE?</div>
+          <div class="answer"><span class="answer-arrow">↳</span><span class="answer-text">Bom dia!! Sim, livres de PFOA e PTFE</span></div>
+          <div class="answer-date">11 meses</div>
+        </div>
+        <div class="qna-item">
+          <div class="question">Pode lavar na lava louça?</div>
+          <div class="answer"><span class="answer-arrow">↳</span><span class="answer-text">Não é recomendado</span></div>
+          <div class="answer-date">cerca de 1 ano</div>
+        </div>
+      </div>
+      <a class="btn-qna" href="#">Ver mais ou fazer uma pergunta →</a>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <nav class="footer-nav">
+        <a href="#">Blog da Lu</a>
+        <a href="#">Nossas lojas</a>
+        <a href="#">Tenha sua loja</a>
+        <a href="#">Regulamento</a>
+        <a href="#">Acessibilidade</a>
+        <a href="#">Segurança e Privacidade</a>
+      </nav>
+    </div>
+    <div class="footer-copy">
+      Magazine Luiza S/A — CNPJ: 47.960.950/1088-36 — Rua Arnulfo de Lima, 2385 - Vila Santa Cruz, Franca/SP. Preços e condições exclusivos para compras via internet.
+    </div>
+  </footer>
+
+  <!-- ===== MODAIS ===== -->
+
+  <!-- Modal: Parcelamento -->
+  <div class="modal-overlay" id="installmentsModal" onclick="closeModalOutside(event, 'installmentsModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title">Parcelamento</span>
+        <button class="modal-close" onclick="closeModal('installmentsModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="tabs">
+          <button class="tab-btn" onclick="switchTab('cartao-luiza')">Cartão Luiza</button>
+          <button class="tab-btn active" onclick="switchTab('cartao-credito')">Cartão de crédito</button>
+        </div>
+        <div class="tab-content" id="tab-cartao-luiza">
+          <table class="installments-table">
+            <thead><tr><th>Parcelas</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>1x de R$&nbsp;105,73<span class="installment-free">sem juros</span></td><td>—</td></tr>
+              <tr><td>2x de R$&nbsp;52,83<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>3x de R$&nbsp;35,24<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>4x de R$&nbsp;26,43<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>5x de R$&nbsp;21,46*</td><td>R$&nbsp;636,58</td></tr>
+              <tr><td>6x de R$&nbsp;17,62*</td><td>R$&nbsp;668,35</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-content active" id="tab-cartao-credito">
+          <table class="installments-table">
+            <thead><tr><th>Parcelas</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>1x de R$&nbsp;105,73<span class="installment-free">sem juros</span></td><td>—</td></tr>
+              <tr><td>2x de R$&nbsp;52,83<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>3x de R$&nbsp;35,24<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>4x de R$&nbsp;26,43<span class="installment-free">sem juros</span></td><td>R$&nbsp;105,76</td></tr>
+              <tr><td>5x de R$&nbsp;21,46*</td><td>R$&nbsp;626,53</td></tr>
+              <tr><td>6x de R$&nbsp;17,62*</td><td>R$&nbsp;638,54</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:11px;color:#949ea2;margin-top:12px;font-style:italic">*Juros incluídos no valor</p>
+        <p style="font-size:13px;color:var(--green-dark);background:var(--green-light);border:1px solid #30c048;border-radius:8px;padding:12px;margin-top:12px;">
+          💰 <strong>PIX:</strong> R$&nbsp;89,90 (15% de desconto)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Calcular Frete -->
+  <div class="modal-overlay" id="shippingModal" onclick="closeModalOutside(event, 'shippingModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title">Calcular frete e prazo</span>
+        <button class="modal-close" onclick="closeModal('shippingModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:14px;color:#51585c;margin-bottom:4px">Informe seu CEP para ver as opções de entrega:</p>
+        <div class="shipping-input-row">
+          <input type="text" id="cepInput" placeholder="00000-000" maxlength="9" oninput="formatCEP(this)">
+          <button class="btn-primary" onclick="calcShipping()">Calcular</button>
+        </div>
+        <a href="#" style="font-size:12px;color:var(--blue)">Não sei meu CEP</a>
+        <div class="shipping-result" id="shippingResult">
+          <p style="margin-bottom:8px"><strong>Opções de entrega para o seu CEP:</strong></p>
+          <p style="margin-bottom:6px">🚚 <strong>Entrega Expressa</strong> — Grátis — Amanhã</p>
+          <p style="margin-bottom:6px">📦 <strong>Entrega Padrão</strong> — R$&nbsp;15,90 — Em até 3 dias úteis</p>
+          <p>🏪 <strong>Retirar na loja</strong> — Grátis — Disponível hoje</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Adicionado à sacola -->
+  <div class="modal-overlay" id="cartModal" onclick="closeModalOutside(event, 'cartModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-title">Produto adicionado à sacola</span>
+        <button class="modal-close" onclick="closeModal('cartModal')">✕</button>
+      </div>
+      <div class="success-body">
+        <div class="success-icon">✅</div>
+        <div class="success-title">Adicionado com sucesso!</div>
+        <img src="https://a-static.mlcdn.com.br/56x56/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/abfea51a7041aaf997996521e2a1dd7c.jpg" alt="" style="border-radius:8px;border:1px solid #f0f3f4">
+        <div class="success-sub">Jogo de Panelas Antiaderente Cerâmico - Mimo Style</div>
+        <div style="font-size:13px;color:var(--grey-text)">1 unidade</div>
+        <div class="success-actions">
+          <button class="btn-add-cart" onclick="closeModal('cartModal')">🛒 Ver sacola</button>
+          <button class="btn-buy-now" onclick="closeModal('cartModal')">Continuar comprando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/scriptindex.js') }}"></script>
+</body>
+</html>

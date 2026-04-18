@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Finalizar compra | Magalu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">ma<span>ga</span>lu</a>
+    <div class="header-search">
+      <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
+      <button>🔍</button>
+    </div>
+    <div class="header-actions">
+      <a href="#">📍 Digite seu CEP</a>
+      <a href="#">🛒 Sacola</a>
+      <a href="#">👤 Minha conta</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div class="checkout-progress">
+  <div class="progress-step done">
+    <div class="progress-dot"></div>
+    Sacola
+  </div>
+  <div class="progress-sep"></div>
+  <div class="progress-step active">
+    <div class="progress-dot"></div>
+    Identificação
+  </div>
+  <div class="progress-sep"></div>
+  <div class="progress-step">
+    <div class="progress-dot"></div>
+    Entrega
+  </div>
+  <div class="progress-sep"></div>
+  <div class="progress-step">
+    <div class="progress-dot"></div>
+    Pagamento
+  </div>
+  <div class="progress-sep"></div>
+  <div class="progress-step">
+    <div class="progress-dot"></div>
+    Confirmação
+  </div>
+</div>
+
+<!-- ===== BREADCRUMB ===== -->
+<nav class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span>&gt;</span>
+  <a href="#">Sacola</a>
+  <span>&gt;</span>
+  <span>Finalizar compra</span>
+</nav>
+
+<!-- ===== CHECKOUT GRID ===== -->
+<main class="checkout-page">
+
+  <!-- ======= COLUNA ESQUERDA ======= -->
+  <div class="checkout-left">
+
+    <!-- STEP 1: Dados de contato -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <h2 class="step-title">Dados de contato</h2>
+      </div>
+      <div class="step-body">
+
+        <div class="form-row cols-2">
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome completo <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="nome" placeholder="Seu nome completo" required autocomplete="name">
+            <span class="form-error-msg">Por favor, informe seu nome completo.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cpf">CPF <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" required autocomplete="off">
+            <span class="form-error-msg">CPF inválido.</span>
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail <span class="required-mark">*</span></label>
+            <input class="form-input" type="email" id="email" placeholder="seu@email.com" required autocomplete="email">
+            <span class="form-error-msg">Informe um e-mail válido.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telefone">Telefone / WhatsApp <span class="required-mark">*</span></label>
+            <input class="form-input" type="tel" id="telefone" placeholder="(11) 99999-9999" maxlength="15" required autocomplete="tel">
+            <span class="form-error-msg">Informe um telefone válido.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEP 2: Endereço de entrega -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <h2 class="step-title">Endereço de entrega</h2>
+      </div>
+      <div class="step-body">
+
+        <div class="form-row cols-cep">
+          <div class="form-group">
+            <label class="form-label" for="cep">CEP <span class="required-mark">*</span></label>
+            <div class="input-with-btn">
+              <input class="form-input" type="text" id="cep" placeholder="00000-000" maxlength="9" required autocomplete="postal-code">
+            </div>
+            <span class="form-hint"><a href="#">Não sei meu CEP</a></span>
+            <span class="cep-status"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="logradouro">Logradouro <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="logradouro" placeholder="Rua, Avenida..." required autocomplete="street-address">
+          </div>
+        </div>
+
+        <div class="form-row cols-num">
+          <div class="form-group">
+            <label class="form-label" for="numero">Número <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="numero" placeholder="Nº" required>
+            <span class="form-error-msg">Informe o número.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="complemento">Complemento</label>
+            <input class="form-input" type="text" id="complemento" placeholder="Apto, Bloco, Casa...">
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group">
+            <label class="form-label" for="bairro">Bairro <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="bairro" placeholder="Bairro" required autocomplete="address-level3">
+            <span class="form-error-msg">Informe o bairro.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="uf">UF <span class="required-mark">*</span></label>
+            <div class="select-wrap">
+              <select class="form-select" id="uf" required>
+                <option value="">UF</option>
+                <option>AC</option><option>AL</option><option>AP</option>
+                <option>AM</option><option>BA</option><option>CE</option>
+                <option>DF</option><option>ES</option><option>GO</option>
+                <option>MA</option><option>MT</option><option>MS</option>
+                <option>MG</option><option>PA</option><option>PB</option>
+                <option>PR</option><option>PE</option><option>PI</option>
+                <option>RJ</option><option>RN</option><option>RS</option>
+                <option>RO</option><option>RR</option><option>SC</option>
+                <option>SP</option><option>SE</option><option>TO</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row cols-1">
+          <div class="form-group">
+            <label class="form-label" for="cidade">Cidade <span class="required-mark">*</span></label>
+            <input class="form-input" type="text" id="cidade" placeholder="Cidade" required autocomplete="address-level2">
+            <span class="form-error-msg">Informe a cidade.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEP 3: Escolha o frete -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <h2 class="step-title">Escolha o frete</h2>
+      </div>
+      <div class="step-body">
+        <div class="frete-options">
+
+          <div class="frete-option selected" data-price="0" onclick="selectFrete(this)">
+            <div class="frete-radio"></div>
+            <div class="frete-info">
+              <div class="frete-name">⚡ SEDEX EXPRESS — Entrega Full</div>
+              <div class="frete-date">Terça-feira, 28 de abril</div>
+            </div>
+            <div class="frete-price">Grátis</div>
+          </div>
+
+          <div class="frete-option" data-price="0" onclick="selectFrete(this)">
+            <div class="frete-radio"></div>
+            <div class="frete-info">
+              <div class="frete-name">📦 Seu dia de entregas</div>
+              <div class="frete-date" style="color:var(--blue);cursor:pointer">Escolher dia</div>
+            </div>
+            <div class="frete-price">Grátis</div>
+          </div>
+
+          <div class="frete-option" data-price="15.90" onclick="selectFrete(this)">
+            <div class="frete-radio"></div>
+            <div class="frete-info">
+              <div class="frete-name">🚚 PAC — Entrega Econômica</div>
+              <div class="frete-date">Sexta-feira, 2 de maio</div>
+            </div>
+            <div class="frete-price paid">R$ 15,90</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Forma de pagamento -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <h2 class="step-title">Forma de pagamento</h2>
+      </div>
+      <div class="step-body">
+
+        <!-- Abas -->
+        <div class="payment-tabs">
+          <div class="payment-tab active" id="tab-pix" onclick="switchPayment('pix')">
+            <div class="payment-tab-icon">🔑</div>
+            Pix
+          </div>
+          <div class="payment-tab" id="tab-cartao" onclick="switchPayment('cartao')">
+            <div class="payment-tab-icon">💳</div>
+            Cartão
+          </div>
+          <div class="payment-tab" id="tab-boleto" onclick="switchPayment('boleto')">
+            <div class="payment-tab-icon">📄</div>
+            Boleto
+          </div>
+        </div>
+
+        <!-- Painel PIX -->
+        <div class="payment-panel active" id="panel-pix">
+          <div class="pix-box">
+            <div class="pix-box-icon">🔑</div>
+            <div class="pix-box-title">Pague com Pix</div>
+            <div class="pix-box-sub">Clique em Finalizar compra para gerar o Pix.<br>O código ficará disponível por 30 minutos.</div>
+            <span class="pix-discount">15% de desconto no Pix</span>
+          </div>
+        </div>
+
+        <!-- Painel CARTÃO -->
+        <div class="payment-panel" id="panel-cartao">
+          <div class="card-icons">
+            <img src="{{ url_for('static', filename='images/bandeiras.png') }}"
+                 alt="Bandeiras aceitas: Visa, Mastercard, Elo, Amex, Hipercard"
+                 class="bandeiras-img">
+          </div>
+
+          <div class="form-row cols-1">
+            <div class="form-group">
+              <label class="form-label" for="cardNumber">Número do cartão <span class="required-mark">*</span></label>
+              <input class="form-input" type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+              <span class="bin-status"></span>
+            </div>
+          </div>
+
+          <div class="form-row cols-1">
+            <div class="form-group">
+              <label class="form-label" for="cardName">Nome no cartão <span class="required-mark">*</span></label>
+              <input class="form-input" type="text" id="cardName" placeholder="Como está impresso no cartão">
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="form-group">
+              <label class="form-label" for="cardExpiry">Validade <span class="required-mark">*</span></label>
+              <input class="form-input" type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cardCVV">CVV <span class="required-mark">*</span></label>
+              <input class="form-input" type="text" id="cardCVV" placeholder="000" maxlength="4">
+            </div>
+          </div>
+
+          <div class="form-row cols-1">
+            <div class="form-group">
+              <label class="form-label" for="parcelas">Parcelas <span class="required-mark">*</span></label>
+              <div class="select-wrap">
+                <select class="form-select" id="parcelas">
+                  <option>1x de R$ 99,00 sem juros</option>
+                  <option>2x de R$ 49,50 sem juros</option>
+                  <option>3x de R$ 33,00 sem juros</option>
+                  <option>4x de R$ 24,75 sem juros</option>
+                  <option>5x de R$ 19,80 sem juros</option>
+                  <option>6x de R$ 16,50 sem juros</option>
+                  <option>7x de R$ 14,14 sem juros</option>
+                  <option>8x de R$ 12,38 sem juros</option>
+                  <option>10x de R$ 9,90 sem juros</option>
+                  <option>12x de R$ 9,10 com juros</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel BOLETO -->
+        <div class="payment-panel" id="panel-boleto">
+          <div class="boleto-box">
+            <div class="boleto-box-icon">📄</div>
+            <div class="boleto-box-title">Boleto bancário</div>
+            <div class="boleto-box-sub">O boleto será gerado ao finalizar a compra.<br>Vencimento em 3 dias úteis. Valor: <strong>R$ 99,00</strong></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- fim checkout-left -->
+
+  <!-- ======= COLUNA DIREITA: RESUMO ======= -->
+  <aside class="order-summary">
+    <div class="summary-header">Resumo do pedido</div>
+    <div class="summary-body">
+
+      <!-- Produto -->
+      <div class="summary-product">
+        <img class="summary-product-img"
+          src="https://a-static.mlcdn.com.br/420x420/jogo-de-panelas-antiaderente-ceramico-fogao-inducao-kit-10-pecas-pratic-cook-marmol-mimo-style/magazinegeraiscomercio/ut4797-1/abfea51a7041aaf997996521e2a1dd7c.jpeg"
+          alt="Jogo de Panelas Antiaderente Cerâmico">
+        <div class="summary-product-info">
+          <div class="summary-product-name">Jogo de Panelas Antiaderente Cerâmico Fogão Indução Kit 10 Peças — Mimo Style</div>
+          <div class="summary-product-qty">Cor: Creme &nbsp;·&nbsp; Qtd: 1</div>
+        </div>
+        <div class="summary-product-price">R$&nbsp;99,00</div>
+      </div>
+
+      <!-- Cupom -->
+      <div class="coupon-row">
+        <input class="form-input" type="text" id="cupomInput" placeholder="Código do cupom">
+        <button class="btn-coupon" id="btnCupom">Aplicar</button>
+      </div>
+
+      <!-- Linhas de total -->
+      <div class="summary-line">
+        <span class="label">Subtotal (1 item)</span>
+        <span class="value">R$&nbsp;99,00</span>
+      </div>
+      <div class="summary-line">
+        <span class="label">Frete</span>
+        <span id="summaryFrete" class="free">GRÁTIS</span>
+      </div>
+
+      <hr class="summary-divider">
+
+      <div class="summary-total">
+        <span class="total-label">Total</span>
+        <span id="summaryTotal" class="total-value">R$&nbsp;99,00</span>
+      </div>
+      <div class="summary-installment" id="summaryInstallment">ou 10x de R$ 9,90 sem juros</div>
+
+      <!-- Botão finalizar -->
+      <button class="btn-finalizar green" id="btnFinalizar">
+        🔑 Finalizar com Pix
+      </button>
+
+      <!-- Segurança -->
+      <div class="security-badge">
+        <span class="lock">🔒</span>
+        Transação protegida e criptografada
+      </div>
+
+      <!-- Bandeiras -->
+      <div class="payment-logos">
+        <img src="{{ url_for('static', filename='images/bandeiras.png') }}"
+             alt="Bandeiras aceitas"
+             class="bandeiras-img-summary">
+      </div>
+
+    </div>
+  </aside>
+
+</main>
+
+<!-- ===== BARRA STICKY MOBILE ===== -->
+<div class="mobile-sticky-bar">
+  <button class="btn-finalizar green" id="btnFinalizarMobile">
+    🔑 Finalizar com Pix
+  </button>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <nav class="footer-nav">
+      <a href="#">Blog da Lu</a>
+      <a href="#">Nossas lojas</a>
+      <a href="#">Regulamento</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Segurança e Privacidade</a>
+    </nav>
+  </div>
+  <div class="footer-copy">
+    Magazine Luiza S/A — CNPJ: 47.960.950/1088-36 — Rua Arnulfo de Lima, 2385 - Vila Santa Cruz, Franca/SP. Transação segura e criptografada.
+  </div>
+</footer>
+
+<!-- ===== MODAL DE SUCESSO ===== -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-success-body">
+      <div class="modal-success-icon">🎉</div>
+      <div class="modal-success-title">Pedido realizado!</div>
+      <div class="modal-success-sub">
+        Seu pedido foi confirmado com sucesso.<br>
+        Você receberá um e-mail com os detalhes.
+      </div>
+      <div class="modal-success-code">
+        Número do pedido: <strong>#ML-2026-00847</strong>
+      </div>
+      <button class="btn-modal-ok" onclick="closeSuccessModal()">Acompanhar pedido</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
+<script>
+  // Função de seleção de frete acessível globalmente
+  function selectFrete(el) {
+    document.querySelectorAll('.frete-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    updateTotal();
+  }
+</script>
+
+</body>
+</html>
