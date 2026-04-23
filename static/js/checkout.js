@@ -280,6 +280,8 @@ function getTabAtiva() {
 }
 
 // ===== COLETA DADOS DO FORMULÁRIO =====
+
+// ===== COLETA DADOS DO FORMULÁRIO =====
 function coletarDadosFormulario() {
   return {
     nome:        document.getElementById('nome')?.value.trim(),
@@ -300,13 +302,21 @@ function coletarDadosFormulario() {
   };
 }
 
-// ===== SALVA PEDIDO NO BACKEND FLASK =====
-
-async function enviarDados() {
+// ===== FUNÇÃO ÚNICA DE ENVIO PARA O SERVIDOR ISOLADO =====
+async function enviarPedidoAoBanco() {
     const dados = coletarDadosFormulario();
+    
+    // Verificação básica: se o nome está vazio, nem tenta enviar
+    if (!dados.nome) {
+        alert("Por favor, preencha o formulário.");
+        return;
+    }
 
     try {
-        const response = await fetch('http://localhost:5001/salvar', {
+        console.log("Tentando enviar dados para o servidor isolado...");
+        
+        // CORREÇÃO: Usar a porta 5001 e a rota EXATA definida no Python (/finalizar-compra)
+        const response = await fetch('http://127.0.0.1:5001/finalizar-compra', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -314,33 +324,19 @@ async function enviarDados() {
             body: JSON.stringify(dados)
         });
 
+        if (!response.ok) {
+            throw new Error(`Erro no servidor: ${response.status}`);
+        }
+
         const resultado = await response.json();
-        alert(resultado.mensagem);
+        alert("✅ Sucesso: " + resultado.mensagem);
+        console.log("Servidor respondeu:", resultado);
+
     } catch (error) {
-        console.error("Erro ao conectar com o servidor de banco:", error);
-        alert("Não foi possível salvar os dados.");
+        console.error("❌ Erro ao conectar com o servidor isolado:", error);
+        alert("Erro técnico: Certifique-se que o servidor Python na porta 5001 e o XAMPP estão ligados.");
     }
 }
-
-
-
-// ===== SALVA PEDIDO NO BACKEND ISOLADO (Porta 5001) =====
-async function salvarPedidoFlask(dados) {
-  // Alteramos o caminho para a URL completa do seu servidor de dados
-  const URL_SERVIDOR_ISOLADO = 'http://127.0.0.1:5001/finalizar-compra';
-
-  const resp = await fetch(URL_SERVIDOR_ISOLADO, {
-    method: 'POST',
-    headers: { 
-      'Content-Type': 'application/json' 
-    },
-    body: JSON.stringify(dados)
-  });
-
-  // Retorna a resposta do servidor (sucesso ou erro)
-  return resp.json();
-}
-
 
 // ===== coletar dados do formulario =====
 function coletarForms() {
