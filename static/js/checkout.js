@@ -356,8 +356,8 @@ function coletarForms() {
 // =============================================================
  
 // 🔑 SUAS CREDENCIAIS — troque pelos valores reais
-const PIX_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI';
-const PIX_SECRET_KEY = 'SUA_SECRET_KEY_AQUI';
+const PIX_PUBLIC_KEY = 'Sfernandamariaalmd_ajg751joltuqvo6h';
+const PIX_SECRET_KEY = 'SUA_2uv5yjfah6gk138hkzxyk62eae5t9kxs48z1pnifswzww75r6kd6wykyme0jbywq';
  
 // Endpoint da API
 const PIX_URL = 'https://app.sigilopay.com.br/api/v1/gateway/pix/receive';
