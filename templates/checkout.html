@@ -202,15 +202,6 @@
             <div class="frete-price">Grátis</div>
           </div>
 
-          <div class="frete-option" data-price="15.90" onclick="selectFrete(this)">
-            <div class="frete-radio"></div>
-            <div class="frete-info">
-              <div class="frete-name">🚚 PAC — Entrega Econômica</div>
-              <div class="frete-date">Sexta-feira, 2 de maio</div>
-            </div>
-            <div class="frete-price paid">R$ 15,90</div>
-          </div>
-
         </div>
       </div>
     </div>
@@ -233,20 +224,39 @@
             <div class="payment-tab-icon">💳</div>
             Cartão
           </div>
-          <div class="payment-tab" id="tab-boleto" onclick="switchPayment('boleto')">
-            <div class="payment-tab-icon">📄</div>
-            Boleto
-          </div>
         </div>
 
-        <!-- Painel PIX -->
+        <!-- Painel PIX — estado inicial (antes de gerar) -->
         <div class="payment-panel active" id="panel-pix">
-          <div class="pix-box">
+
+          <!-- Tela 1: convite para gerar o Pix -->
+          <div class="pix-box" id="pix-inicial">
             <div class="pix-box-icon">🔑</div>
             <div class="pix-box-title">Pague com Pix</div>
-            <div class="pix-box-sub">Clique em Finalizar compra para gerar o Pix.<br>O código ficará disponível por 30 minutos.</div>
+            <div class="pix-box-sub">Preencha seus dados e clique em <strong>Gerar código Pix</strong>.<br>O código ficará disponível por 30 minutos.</div>
             <span class="pix-discount">15% de desconto no Pix</span>
           </div>
+
+          <!-- Tela 2: exibe o código Pix retornado pela gateway (hidden por padrão) -->
+          <div class="pix-resultado" id="pix-resultado" style="display:none">
+            <div class="pix-resultado-header">
+              <span class="pix-resultado-icon">✅</span>
+              <div>
+                <div class="pix-resultado-titulo">Código Pix gerado!</div>
+                <div class="pix-resultado-sub">Copie o código abaixo e pague pelo app do seu banco.<br>Válido por <strong>30 minutos</strong>.</div>
+              </div>
+            </div>
+            <div class="pix-code-wrap">
+              <textarea class="pix-code-box" id="pixCodigoCopia" readonly></textarea>
+              <button class="btn-copiar-pix" id="btnCopiarPix" onclick="copiarCodigoPix()">
+                📋 Copiar código
+              </button>
+            </div>
+            <div class="pix-aviso">
+              ⏱ Após o pagamento, a confirmação pode levar até 1 minuto.
+            </div>
+          </div>
+
         </div>
 
         <!-- Painel CARTÃO -->
@@ -304,15 +314,6 @@
           </div>
         </div>
 
-        <!-- Painel BOLETO -->
-        <div class="payment-panel" id="panel-boleto">
-          <div class="boleto-box">
-            <div class="boleto-box-icon">📄</div>
-            <div class="boleto-box-title">Boleto bancário</div>
-            <div class="boleto-box-sub">O boleto será gerado ao finalizar a compra.<br>Vencimento em 3 dias úteis. Valor: <strong>R$ 99,00</strong></div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -332,7 +333,7 @@
           <div class="summary-product-name">Jogo de Panelas Antiaderente Cerâmico Fogão Indução Kit 10 Peças — Mimo Style</div>
           <div class="summary-product-qty">Cor: Creme &nbsp;·&nbsp; Qtd: 1</div>
         </div>
-        <div class="summary-product-price">R$&nbsp;99,00</div>
+        <div class="summary-product-price">R$&nbsp;89,90</div>
       </div>
 
       <!-- Cupom -->
@@ -344,7 +345,7 @@
       <!-- Linhas de total -->
       <div class="summary-line">
         <span class="label">Subtotal (1 item)</span>
-        <span class="value">R$&nbsp;99,00</span>
+        <span class="value">R$&nbsp;89,90</span>
       </div>
       <div class="summary-line">
         <span class="label">Frete</span>
@@ -355,13 +356,13 @@
 
       <div class="summary-total">
         <span class="total-label">Total</span>
-        <span id="summaryTotal" class="total-value">R$&nbsp;99,00</span>
+        <span id="summaryTotal" class="total-value">R$&nbsp;89,90</span>
       </div>
-      <div class="summary-installment" id="summaryInstallment">ou 10x de R$ 9,90 sem juros</div>
+      <div class="summary-installment" id="summaryInstallment">ou 10x de R$ 8,99 sem juros</div>
 
       <!-- Botão finalizar -->
       <button class="btn-finalizar green" id="btnFinalizar">
-        🔑 Finalizar com Pix
+        🔑 Gerar código Pix
       </button>
 
       <!-- Segurança -->
@@ -385,7 +386,7 @@
 <!-- ===== BARRA STICKY MOBILE ===== -->
 <div class="mobile-sticky-bar">
   <button class="btn-finalizar green" id="btnFinalizarMobile">
-    🔑 Finalizar com Pix
+    🔑 Gerar código Pix
   </button>
 </div>
 

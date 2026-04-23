@@ -421,6 +421,14 @@ header {
   font-weight: 700;
   color: var(--green);
 }
+
+.frete-option.selected .frete-radio::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
 .seller-score-labels {
   display: flex;
   justify-content: space-between;

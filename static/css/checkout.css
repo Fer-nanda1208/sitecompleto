@@ -442,17 +442,80 @@ header {
   background: white;
 }
 
-/* Boleto panel */
-.boleto-box {
-  background: #f8fafb;
-  border: 1.5px solid var(--grey-border);
+/* Boleto panel — removido */
+
+/* ===== PIX RESULTADO (código gerado) ===== */
+.pix-resultado {
+  border: 1.5px solid #30c048;
   border-radius: var(--radius-lg);
-  padding: 20px;
+  overflow: hidden;
+  background: var(--green-light);
+}
+.pix-resultado-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #b4efc0;
+}
+.pix-resultado-icon { font-size: 28px; flex-shrink: 0; }
+.pix-resultado-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+.pix-resultado-sub {
+  font-size: 12px;
+  color: #278b51;
+  line-height: 1.5;
+}
+.pix-code-wrap {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pix-code-box {
+  width: 100%;
+  border: 1.5px solid #30c048;
+  border-radius: var(--radius-md);
+  background: white;
+  padding: 12px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  color: #1e2428;
+  resize: none;
+  height: 80px;
+  outline: none;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.btn-copiar-pix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  background: var(--green);
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.1s;
+  min-height: var(--touch-min);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-copiar-pix:hover   { background: var(--green-dark); }
+.btn-copiar-pix:active  { transform: scale(0.99); }
+.btn-copiar-pix.copiado { background: #278b51; }
+.pix-aviso {
+  padding: 10px 20px 16px;
+  font-size: 11px;
+  color: #278b51;
   text-align: center;
 }
-.boleto-box-icon { font-size: 36px; margin-bottom: 8px; }
-.boleto-box-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-.boleto-box-sub { font-size: 13px; color: var(--grey-text); }
 
 /* ===== FINALIZAR BTN ===== */
 .btn-finalizar {
