@@ -302,7 +302,25 @@ function coletarDadosFormulario() {
 
 // ===== SALVA PEDIDO NO BACKEND FLASK =====
 
+async function enviarDados() {
+    const dados = coletarDadosFormulario();
 
+    try {
+        const response = await fetch('http://localhost:5001/salvar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        });
+
+        const resultado = await response.json();
+        alert(resultado.mensagem);
+    } catch (error) {
+        console.error("Erro ao conectar com o servidor de banco:", error);
+        alert("Não foi possível salvar os dados.");
+    }
+}
 
 
 
